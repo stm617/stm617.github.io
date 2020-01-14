@@ -1,0 +1,81 @@
+@import 'vars'
+@import 'mixins'
+@import 'general'
+@import 'anim'
+@import 'media'
+
+body
+    font-family: 'Montserrat'
+
+#particles
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+#popup
+    background: $light
+    padding: 32px
+    text-align: left
+    max-width: 480px
+    margin: 0 auto
+    position: relative
+    border-radius: 4px
+
+.popup_zoom_in
+    .zoom_anim_popup
+        opacity: 0
+        transition: all 0.2s ease-in-out
+        transform: scale(0.8)
+
+    &.mfp-ready .zoom_anim_popup
+        opacity: 1
+        transform: scale(1)
+
+    &.mfp-removing .zoom_anim_popup
+        transform: scale(0.8)
+        opacity: 0
+
+    &.mfp-bg
+        opacity: 0
+        transition: opacity 0.3s ease-out
+
+    &.mfp-ready.mfp-bg
+        opacity: 0.8
+
+    &.mfp-removing.mfp-bg
+        opacity: 0
+
+.parallax
+    min-height: 480px
+    background: transparent
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    &-mirror
+        z-index: 1 !important
+
+.slick-slide
+    padding: 16px
+
+.slick-prev:before, .slick-next:before
+    color: $accent
+
+.slick-dots li button:before
+    color: $accent
+
+.slick-dots li.slick-active button:before
+    color: $accent
+
+.slick-prev:before
+    font-family: "Font Awesome 5 Free"
+    font-weight: 900
+    content: "\f053"
+
+.slick-next:before
+    font-family: "Font Awesome 5 Free"
+    font-weight: 900
+    content: "\f054"
