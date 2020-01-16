@@ -5,6 +5,14 @@ new WOW().init();
 
 $(document).ready(function () {
 
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 1) {
+            $('.header').addClass('header_fixed');
+        } else {
+            $('.header').removeClass('header_fixed');
+        }
+    });
+
     $('.popup_btn').magnificPopup({
         type: 'inline',
 
@@ -22,9 +30,8 @@ $(document).ready(function () {
     });
 
     $('.partners_slider').slick({
-        dots: true,
-        infinite: false,
-        speed: 300,
+        autoplay: true,
+        infinite: true,
         slidesToShow: 4,
         slidesToScroll: 4,
         responsive: [
@@ -33,22 +40,29 @@ $(document).ready(function () {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrows: false
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    arrows: false
                 }
             }
             // You can unslick at a given breakpoint now by adding:
